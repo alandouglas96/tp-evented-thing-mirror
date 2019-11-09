@@ -18,13 +18,15 @@
 
 function EventedThing () {
   this._listen = {};
-  eventedThing.on('meet', function (name) {
-    console.log('Nice to meet you, ' + name + '.');
-  });
-  eventedThing.trigger('meet', 'Sarah');
-  eventedThing.trigger('whatever');
+
 
 
 }
 
 module.exports = new EventedThing;
+
+eventedThing.on('meet', function (name) {
+  //console.log('Nice to meet you, ' + name + '.');
+});
+eventedThing.trigger('meet', 'Sarah');
+eventedThing.trigger('whatever');
