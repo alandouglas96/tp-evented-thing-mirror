@@ -16,17 +16,33 @@
 // -> nothing happens
 
 
-function EventedThing () {
+function EventedThing (word) {
   this._listen = {};
-
+  this.word = word;
+  EventedThing.on = function (word) {
+    // eslint-disable-next-line no-console
+    console.log(word + ' working');
+  };
 
 
 }
 
+const methods = {
+
+};
+
 module.exports = new EventedThing;
 
-eventedThing.on('meet', function (name) {
-  //console.log('Nice to meet you, ' + name + '.');
-});
-eventedThing.trigger('meet', 'Sarah');
-eventedThing.trigger('whatever');
+//EventedThing.prototype.printTest = function (word) {
+
+// eslint-disable-next-line no-console
+//console.log(word + ' working');
+//};
+
+//eventedThing.on('meet', function (name) {
+//console.log('Nice to meet you, ' + name + '.');
+//});
+//eventedThing.trigger('meet', 'Sarah');
+//eventedThing.trigger('whatever');
+
+//EventedThing.printTest('machine');
