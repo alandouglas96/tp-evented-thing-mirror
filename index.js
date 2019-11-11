@@ -16,22 +16,22 @@
 // -> nothing happens
 
 
-function EventedThing (word) {
-  this._listen = {};
-  this.word = word;
-  EventedThing.on = function (word) {
-    // eslint-disable-next-line no-console
-    console.log(word + ' working');
-  };
+class EventedThing {
+  constructor () {
+    this._listen = {};
+    //this.name = name;
+  }
 
+  on (e, callback) {
+    this._listen[e] = callback;
+  }
 
+  trigger (e, ...args) {
+    if (this._listen[e]) return this._listen[e](...args);
+  }
 }
 
-const methods = {
-
-};
-
-module.exports = new EventedThing;
+module.exports = new EventedThing();
 
 //EventedThing.prototype.printTest = function (word) {
 
