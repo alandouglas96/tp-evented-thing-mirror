@@ -15,7 +15,7 @@
 // eventedThing.trigger('whatever');
 // -> nothing happens
 
-
+//ES6 version
 class EventedThing {
   constructor () {
     this._listen = {};
@@ -30,6 +30,19 @@ class EventedThing {
     if (this._listen[e]) return this._listen[e](...args);
   }
 }
+
+//Pseudo-classical version
+
+function EventedThingV2 () {
+  this._listen = {};
+}
+
+EventedThingV2.prototype.on = function (e, callback) {
+  this._listen[e] = callback;
+};
+EventedThingV2.prototype.trigger = function (e, ...args) {
+  if (this._listen[e]) return this._listen[e](...args);
+};
 
 module.exports = new EventedThing();
 
